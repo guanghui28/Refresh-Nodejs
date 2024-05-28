@@ -1,0 +1,1 @@
+Reading and writing files with Node.js is easy after you learn the Node JS file system module. In this Node beginners tutorial, you will learn how to read, write, update and delete files with Node.js. You will also learn how to create readable and writeable streams of data with Node.

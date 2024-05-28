@@ -1,27 +1,51 @@
-// console.log(global);
-const os = require("os");
+const fs = require("fs");
 const path = require("path");
-// const math = require("./math");
-const { add, subtract, multiply, divide } = require("./math");
-// console.log(os.type());
-// console.log(os.version());
-// console.log(os.homedir());
 
-// console.log(__dirname);
-// console.log(__filename);
+// async function
+// platform-independent
+fs.readFile(path.join(__dirname, "files", "huy.txt"), "utf-8", (err, data) => {
+	if (err) {
+		throw new Error(`my message: Co loi; global message: ${err.message}`);
+	} else {
+		console.log(data);
+		fs.writeFile(path.join(__dirname, "files", "copy.txt"), data, (err) => {
+			if (err) throw err;
+		});
+	}
+});
 
-// console.log(path.dirname());
-// console.log(path.resolve(__dirname));
-// console.log(path.basename(__filename));
-// console.log(path.dirname(__filename));
-// console.log(path.extname(__filename));
-// console.log(path.parse(__filename));
-// console.log(Object.(path.parse(__filename)));
+console.log("Hello");
 
-// console.log(math.add(2, 3));
-console.log(add(2, 3));
-console.log(multiply(2, 3));
-console.log(subtract(2, 3));
-console.log(divide(2, 3));
+fs.writeFile(
+	path.join(__dirname, "files", "write.txt"),
+	"I'm writing a file 2 👍",
+	(err) => {
+		if (err) throw err;
+		console.log("write file");
+	}
+);
 
-console.log(fetch);
+fs.appendFile(
+	path.join(__dirname, "files", "write2.txt"),
+	"\nappend more",
+	(err) => {
+		if (err) throw err;
+		console.log("append file");
+	}
+);
+
+process.on("uncaughtException", (err) => {
+	console.log(err);
+	process.exit(1);
+});
+process.on("exit", (code) => {
+	if (code !== 0) {
+		console.log("Exit with error");
+	} else {
+		console.log("Exit with success work");
+	}
+});
+
+// process.stdout.write("Memory use: ");
+// console.log(`id process: ${process.pid}`);
+// console.log(process.memoryUsage());
