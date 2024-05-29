@@ -3,27 +3,14 @@ const express = require("express");
 const { logger } = require("./middleware/logEvents");
 const cors = require("cors");
 const { errorHandler } = require("./middleware/errorHandler");
+const { corsOptions } = require("./configs/corsOptions");
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
 app.use(logger);
-const whiteList = [
-	"https://coccoc.com",
-	"https://www.guanghui28.com",
-	"http://localhost:5500",
-];
-const corsOptions = {
-	origin: (origin, callback) => {
-		if (whiteList.indexOf(origin) !== -1 || !origin) {
-			callback(null, true);
-		} else {
-			callback(new Error("Not Allow by GuangHui"));
-		}
-	},
-	optionsSuccessStatus: 200,
-};
+
 app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: true }));
@@ -32,7 +19,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", require("./routes/root"));
-app.use("/subdir", require("./routes/subdir"));
 app.use("/employees", require("./routes/api/employees"));
 
 app.all("*", (req, res) => {
