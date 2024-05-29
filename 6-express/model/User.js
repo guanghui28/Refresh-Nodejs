@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
 			EDITOR: Number,
 			ADMIN: Number,
 		},
-		refreshToken: String,
+		refreshToken: [String],
 	},
 	{ timestamps: true }
 );

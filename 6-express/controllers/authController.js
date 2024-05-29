@@ -44,6 +44,7 @@ const handleSignUp = async (req, res) => {
 
 const handleSignIn = async (req, res) => {
 	try {
+		const cookies = req.cookies;
 		const { username, password } = req.body;
 		if (!username || !password) {
 			return res
@@ -80,7 +81,7 @@ const handleSignIn = async (req, res) => {
 				expiresIn: "5m",
 			}
 		);
-		const refreshToken = jwt.sign(
+		const newRefreshToken = jwt.sign(
 			{
 				username: foundUser.username,
 			},
@@ -90,10 +91,18 @@ const handleSignIn = async (req, res) => {
 			}
 		);
 
-		foundUser.refreshToken = refreshToken;
+		const newRefreshTokenArray = !cookies?.jwt
+			? foundUser.refreshToken
+			: foundUser.refreshToken.filter((rt) => rt !== cookies.jwt);
+
+		if (cookies?.jwt) {
+			res.clearCookie("jwt");
+		}
+
+		foundUser.refreshToken = [...newRefreshTokenArray, newRefreshToken];
 		await foundUser.save();
 
-		res.cookie("jwt", refreshToken, {
+		res.cookie("jwt", newRefreshToken, {
 			httpOnly: true,
 			maxAge: 24 * 60 * 60 * 1000,
 		});
@@ -121,7 +130,9 @@ const handleSignOut = async (req, res) => {
 	}
 
 	// delete refresh token in the db
-	foundUser.refreshToken = "";
+	foundUser.refreshToken = founderUser.refreshToken.filter(
+		(rt) => rt !== refreshToken
+	);
 	await foundUser.save();
 
 	res.clearCookie("jwt");
