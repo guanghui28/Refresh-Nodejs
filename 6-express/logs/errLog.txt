@@ -1,1 +1,1 @@
-28/05/2024	10:15:55PM	3a0c6008-1a08-476b-88e8-3bc83b3f5dbe	TypeError: fsPromise.readFil is not a function
+29/05/2024	09:11:00AM	5e4728ca-65d2-4fcb-912f-013f4453b57b	Error - Not Allow by GuangHui

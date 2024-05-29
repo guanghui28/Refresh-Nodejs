@@ -1,11 +1,49 @@
-28/05/2024	10:14:19PM	4f409cfb-348a-4d30-980e-7a3c2bcb6118	/cc	GET
-28/05/2024	10:14:22PM	2dd83382-dea0-4753-922b-dfd54699e876	/imgs/amazon.png	GET
-28/05/2024	10:14:25PM	5423d0eb-8ab5-4321-a54a-885469c832d9	/	GET
-28/05/2024	10:14:25PM	46ff0376-4a33-4312-b565-7a55606348e5	/imgs/amazon.png	GET
-28/05/2024	10:14:30PM	00207955-7fea-4230-ac0f-8c3ec6531bb4	/new-page.html	GET
-28/05/2024	10:14:37PM	e0d796b8-e284-4631-b6ea-34b6d05427c5	/www-page.html	GET
-28/05/2024	10:14:37PM	49a2b9a2-10e8-4a40-be88-e74a8deeb217	/	GET
-28/05/2024	10:14:38PM	e91e2f74-fb12-47b5-ab9f-15af8ba14b2f	/imgs/amazon.png	GET
-28/05/2024	10:15:55PM	ff6e3d86-cdfc-423d-9131-66036a5bfca4	/	GET
-28/05/2024	10:16:09PM	872fb2a4-2c40-4bb8-90f9-4ea2a0f23b03	/	GET
-28/05/2024	10:16:09PM	4d15a302-3595-4112-8c1a-c418291e02a7	/imgs/amazon.png	GET
+29/05/2024	08:45:33AM	35327d9c-cc40-4eaa-a225-7cfd98e2ad1d	/ - GET
+29/05/2024	08:45:33AM	1d82d0b8-2ddd-4488-aacf-209477436427	/css/style.css - GET
+29/05/2024	08:45:33AM	1164ee28-058a-4bdc-a25e-172a423d4cea	/imgs/amazon.png - GET
+29/05/2024	08:46:20AM	7632e6fa-42c7-4603-b019-dfc5a11c76d3	/ - undefined - GET
+29/05/2024	08:46:20AM	e58cce34-ecaa-4161-880a-cc9e9b2f0469	/css/style.css - undefined - GET
+29/05/2024	08:46:20AM	6dd875b6-9e86-4d76-8f9e-d486483abfd1	/imgs/amazon.png - undefined - GET
+29/05/2024	08:48:29AM	a2bbc1a8-9f0d-4022-aa06-61d7859b53a0	/ - undefined - GET
+29/05/2024	08:48:29AM	b659f0c3-34bc-4403-837f-3692f733db75	/css/style.css - undefined - GET
+29/05/2024	08:48:29AM	878ea05a-0534-413f-9923-cb5f88a9c3b8	/imgs/amazon.png - undefined - GET
+29/05/2024	08:49:30AM	05b024f4-7d8e-460d-b226-65d4f49dac71	/css/style.css - undefined - GET
+29/05/2024	08:49:39AM	3d8b66b2-b3da-4a1b-9698-2577b8d8eb61	/ - undefined - GET
+29/05/2024	08:50:01AM	b7441860-824a-4499-a4de-34bdfeb961e7	/ - https://coccoc.com - GET
+29/05/2024	08:55:48AM	cf659456-efd5-439f-964c-898a976443c7	/ - https://coccoc.com - GET
+29/05/2024	09:01:06AM	f8d20330-9885-47cd-bee4-da2cd85241ac	/ - https://coccoc.com - GET
+29/05/2024	09:01:12AM	9d1b8017-717a-46bc-b51b-b15b8a470cd2	/ - https://coccoc.com - GET
+29/05/2024	09:02:24AM	5ccaf564-1bd4-4166-af7b-3684f4ec8923	/ - https://coccoc.com - GET
+29/05/2024	09:04:20AM	73043992-f10b-4227-a013-f94ffdcccf4a	/ - https://coccoc.com - GET
+29/05/2024	09:04:42AM	f5b00652-90d7-43c7-bf60-231acefb7026	/ - https://coccoc.com - GET
+29/05/2024	09:05:07AM	678a48b4-6663-4c60-8ed3-6ae8495f7ccf	/ - undefined - GET
+29/05/2024	09:05:22AM	0bb45c70-95c8-47ee-bb33-d99ad19650eb	/ - undefined - GET
+29/05/2024	09:06:07AM	ee648a0b-3b07-4cd6-b6b4-b668f086c884	/ - undefined - GET
+29/05/2024	09:06:07AM	762ee8ec-6677-47dd-a4b5-92eb34c25d31	/css/style.css - undefined - GET
+29/05/2024	09:06:07AM	94656d03-7c02-439f-b6ec-e01f22741449	/imgs/amazon.png - undefined - GET
+29/05/2024	09:06:55AM	0bd91de5-d160-429f-bfc3-cf5e27aa1397	/ - undefined - GET
+29/05/2024	09:06:55AM	e81a31d7-1b48-4348-9f41-c2bc07359195	/css/style.css - undefined - GET
+29/05/2024	09:06:55AM	c6b6f15d-36c5-4369-9c62-4010aa200455	/imgs/amazon.png - undefined - GET
+29/05/2024	09:09:53AM	8a1d8d73-690e-4ec7-83f0-a0d618f22384	/ - undefined - GET
+29/05/2024	09:09:53AM	ae305108-7970-4e0a-ac54-2d08fea223fb	/css/style.css - undefined - GET
+29/05/2024	09:09:53AM	068905c7-7b8d-431c-82ff-a0ad0f7e2bbe	/imgs/amazon.png - undefined - GET
+29/05/2024	09:10:03AM	eb903e3d-910d-4dc4-ac91-3920b873882d	/ - undefined - GET
+29/05/2024	09:10:03AM	831df560-7238-4cbb-962e-7e8274516c0e	/css/style.css - undefined - GET
+29/05/2024	09:10:03AM	6be828c7-395c-4ead-b834-343ab697394c	/imgs/amazon.png - undefined - GET
+29/05/2024	09:10:03AM	fbe1862e-db05-4531-8ebc-5031588a5f0e	/favicon.ico - undefined - GET
+29/05/2024	09:10:11AM	db7090f9-3e84-49e7-9af0-897a5dce3278	/ - undefined - GET
+29/05/2024	09:10:11AM	a2bd8757-3a11-4e74-a549-86459ec6cf25	/css/style.css - undefined - GET
+29/05/2024	09:10:11AM	06a84b0e-9d48-4d5e-a5c8-d94ccf1c3443	/imgs/amazon.png - undefined - GET
+29/05/2024	09:10:21AM	f08f7d6d-0e69-4293-b999-9a1302c03365	/ - undefined - GET
+29/05/2024	09:10:21AM	6e185209-271a-4331-b0fb-0872bba64630	/css/style.css - undefined - GET
+29/05/2024	09:10:21AM	344fbe9b-33d7-428f-846c-49cb0062c9b0	/imgs/amazon.png - undefined - GET
+29/05/2024	09:11:00AM	6c47018a-98b8-42a4-8247-9991af726979	/ - undefined - GET
+29/05/2024	09:13:06AM	e857dbfc-9b8d-4c66-936e-cf7f9049e332	/huy - undefined - GET
+29/05/2024	09:13:06AM	01157087-f393-4dc8-8aa5-b03978c3926a	/css/style.css - undefined - GET
+29/05/2024	09:13:14AM	9d834811-5f74-4d85-8a7b-01f6d70e1278	/huy - undefined - GET
+29/05/2024	09:13:14AM	387ad20b-ad60-4666-8406-39287b34cba7	/css/style.css - undefined - GET
+29/05/2024	09:17:05AM	719da6f1-5d3e-4fce-87ca-1b37a5ec97fc	/huy - undefined - GET
+29/05/2024	09:17:05AM	6e5696aa-7e93-4f87-97d7-a5d9deb85e38	/css/style.css - undefined - GET
+29/05/2024	09:19:27AM	b6351ff7-28d7-4a26-80fd-0118b8db25ec	/huy - undefined - POST
+29/05/2024	09:19:35AM	bc5a2dc1-6b42-40dd-842b-1948c882e520	/huy - undefined - POST
+29/05/2024	09:20:29AM	65a1156c-2c3a-411e-9f23-f38c0d03bcc5	/huy - undefined - POST
