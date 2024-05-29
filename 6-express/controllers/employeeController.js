@@ -1,67 +1,71 @@
-const data = {
-	employees: require("../model/employees.json"),
-	setEmployees: function (data) {
-		this.employees = data;
-	},
+const EmployeeModel = require("../model/Employee");
+
+const getAllEmployees = async (req, res) => {
+	const employees = await EmployeeModel.find();
+	res.status(200).json({ employees });
 };
 
-const getAllEmployees = (req, res) => {
-	res.status(200).json(data.employees);
-};
-
-const getEmployee = (req, res) => {
+const getEmployee = async (req, res) => {
 	const { id } = req.params;
-	const em = data.employees.find((em) => em.id === +id);
+	const employee = await EmployeeModel.findById(id);
 	res.status(200).json({
-		employee: em,
+		employee,
 	});
 };
 
-const createEmployee = (req, res) => {
+const createEmployee = async (req, res) => {
 	const { name, age } = req.body;
 	if (!name || !age) {
 		return res.status(400).json({
 			message: "All field are required!",
 		});
 	}
-	const newEm = {
-		id: data.employees.length + 1,
+	const newEm = await EmployeeModel.create({
 		name,
 		age: Number(age),
-	};
-	data.setEmployees([...data.employees, newEm]);
+	});
+
 	res.status(201).json({ employee: newEm });
 };
 
-const updateEmployee = (req, res) => {
+const updateEmployee = async (req, res) => {
 	const { name, age, id } = req.body;
+	if (!id) {
+		return res.status(400).json({
+			message: "You need to provide ID",
+		});
+	}
+
 	if (!name && !age) {
 		return res.status(400).json({
 			message: "Must be filled",
 		});
 	}
-	const em = data.employees.find((em) => em.id === Number(id));
-	if (!em) {
+	const employee = await EmployeeModel.findById(id);
+	if (!employee) {
 		return res.status(404).json({
-			message: "Not found em",
+			message: "Not found employee",
 		});
 	}
-	em.name = name || em.name;
-	em.age = Number(age) || em.age;
 
-	res.status(200).json({ employees: data.employees });
+	employee.name = name || employee.name;
+	employee.age = Number(age) || employee.age;
+
+	await employee.save();
+
+	res.status(200).json({ employee });
 };
 
-const deleteEmployee = (req, res) => {
+const deleteEmployee = async (req, res) => {
 	const { id } = req.body;
-	const em = data.employees.find((em) => em.id === Number(id));
-	if (!em) {
+	const employee = await EmployeeModel.findById(id);
+	if (!employee) {
 		return res.status(404).json({
 			message: "Not found to deleted",
 		});
 	}
-	data.setEmployees([...data.employees.filter((em) => em.id !== Number(id))]);
-	res.status(200).json({ employees: data.employees });
+	await EmployeeModel.findByIdAndDelete(id);
+	res.status(200).json({ message: "Delete employee success" });
 };
 
 module.exports = {

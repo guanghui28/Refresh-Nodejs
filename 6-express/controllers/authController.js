@@ -1,13 +1,6 @@
-const userDB = {
-	users: require("../model/users.json"),
-	setUsers: function (data) {
-		this.users = data;
-	},
-};
 const bcrypt = require("bcrypt");
-const fsPromise = require("fs/promises");
-const path = require("path");
 const jwt = require("jsonwebtoken");
+const UserModel = require("../model/User");
 const ROLES = require("../configs/rolesList");
 
 const handleSignUp = async (req, res) => {
@@ -19,7 +12,8 @@ const handleSignUp = async (req, res) => {
 			});
 		}
 
-		const existedUser = userDB.users.find((user) => user.username === username);
+		const existedUser = await UserModel.findOne({ username });
+
 		if (existedUser) {
 			return res.status(409).json({
 				message: "username was existed!",
@@ -29,22 +23,18 @@ const handleSignUp = async (req, res) => {
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
 
-		const newUser = {
+		const newUser = await UserModel.create({
 			username,
 			password: hashedPassword,
 			roles: {
 				USER: ROLES.USER,
 			},
-		};
+		});
 
-		userDB.setUsers([...userDB.users, newUser]);
-		await fsPromise.writeFile(
-			path.join(__dirname, "..", "model", "users.json"),
-			JSON.stringify(userDB.users)
-		);
+		console.log(newUser);
 
 		return res.status(201).json({
-			users: userDB.users,
+			message: `Create ${username} success`,
 		});
 	} catch (err) {
 		res.status(500).json({ message: err.message });
@@ -61,7 +51,7 @@ const handleSignIn = async (req, res) => {
 				.json({ message: "Username and password must be filled!" });
 		}
 
-		const foundUser = userDB.users.find((user) => user.username === username);
+		const foundUser = await UserModel.findOne({ username });
 		if (!foundUser) {
 			return res.status(401).json({
 				message: "username or password wrong!",
@@ -100,16 +90,11 @@ const handleSignIn = async (req, res) => {
 			}
 		);
 
-		const otherUsers = userDB.users.filter(
-			(user) => user.username !== foundUser.username
-		);
-		const currentUser = { ...foundUser, refreshToken };
-		userDB.setUsers([...otherUsers, currentUser]);
-
-		await fsPromise.writeFile(
-			path.join(__dirname, "..", "model", "users.json"),
-			JSON.stringify(userDB.users)
-		);
+		await UserModel.findByIdAndUpdate(foundUser._id, {
+			$set: {
+				refreshToken,
+			},
+		});
 
 		res.cookie("jwt", refreshToken, {
 			httpOnly: true,
@@ -132,31 +117,19 @@ const handleSignOut = async (req, res) => {
 	}
 
 	const refreshToken = cookies.jwt;
-	const foundUser = userDB.users.find(
-		(user) => user.refreshToken === refreshToken
-	);
+	const foundUser = await UserModel.findOne({ refreshToken });
 	if (!foundUser) {
 		res.clearCookie("jwt");
 		return res.sendStatus(204);
 	}
 
 	// delete refresh token in the db
-	userDB.setUsers([
-		...userDB.users.map((user) => {
-			if (user.username === foundUser.username) {
-				return {
-					...user,
-					refreshToken: "",
-				};
-			}
-			return user;
-		}),
-	]);
+	await UserModel.findByIdAndUpdate(foundUser._id, {
+		$set: {
+			refreshToken: "",
+		},
+	});
 
-	await fsPromise.writeFile(
-		path.join(__dirname, "..", "model", "users.json"),
-		JSON.stringify(userDB.users)
-	);
 	res.clearCookie("jwt");
 	res.sendStatus(204);
 };

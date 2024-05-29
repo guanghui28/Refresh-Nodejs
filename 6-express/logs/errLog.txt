@@ -2,3 +2,10 @@
 29/05/2024	01:19:20PM	5dddcf02-a5ff-49f9-934d-05b29560889b	ReferenceError - data is not defined
 29/05/2024	01:44:43PM	566994b6-65b2-4648-a82a-e6c182c33fab	TypeError - userDB.find is not a function
 29/05/2024	02:03:08PM	7ccd49a8-feec-4551-b77b-e65e1f69e36c	TypeError - Cannot read properties of undefined (reading 'username')
+29/05/2024	04:31:23PM	cf292520-64f3-490f-b166-dd2e9ab713e4	ReferenceError - data is not defined
+29/05/2024	04:56:19PM	de0dc42a-8832-464e-92de-13df0523c7fb	ReferenceError - em is not defined
+29/05/2024	04:58:33PM	bb0bfa9d-d0f3-4c9a-b9e7-3b77d6455b2b	ReferenceError - mployeeModel is not defined
+29/05/2024	04:59:31PM	cdd5b69d-bbf5-4071-ba45-b83cd7d5d995	ReferenceError - mployeeModel is not defined
+29/05/2024	05:00:23PM	0923c6e1-bf70-47f1-b107-39cfcaa81bac	TypeError - employee.remove is not a function
+29/05/2024	05:01:25PM	dc117413-b228-42c0-98c4-e26ade4ff29c	TypeError - EmployeeModel.findByIdAndRemove is not a function
+29/05/2024	05:01:31PM	74275a62-d742-43a4-b23b-9e3f8123e847	TypeError - EmployeeModel.findByIdAndRemove is not a function

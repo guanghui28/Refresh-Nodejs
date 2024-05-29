@@ -1,12 +1,7 @@
-const userDB = {
-	users: require("../model/users.json"),
-	setUsers: function (data) {
-		this.users = data;
-	},
-};
+const UserModel = require("../model/User");
 const jwt = require("jsonwebtoken");
 
-const handleRefreshToken = (req, res) => {
+const handleRefreshToken = async (req, res) => {
 	const { cookies } = req;
 
 	if (!cookies?.jwt) {
@@ -14,12 +9,10 @@ const handleRefreshToken = (req, res) => {
 	}
 
 	const refreshToken = cookies.jwt;
-	const foundUser = userDB.users.find(
-		(user) => user.refreshToken === refreshToken
-	);
+	const foundUser = await UserModel.findOne({ refreshToken });
 
 	jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-		if (err || foundUser?.username !== decoded?.userInfo.username) {
+		if (err || foundUser?.username !== decoded?.username) {
 			return res.status(403).json({ message: "Refresh token is invalid!" });
 		}
 
