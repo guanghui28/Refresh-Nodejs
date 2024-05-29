@@ -10,8 +10,6 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 const ROLES = require("../configs/rolesList");
 
-require("dotenv").config();
-
 const handleSignUp = async (req, res) => {
 	try {
 		const { username, password } = req.body;
