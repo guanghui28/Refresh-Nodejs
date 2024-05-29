@@ -7,6 +7,9 @@ const userDB = {
 const bcrypt = require("bcrypt");
 const fsPromise = require("fs/promises");
 const path = require("path");
+const jwt = require("jsonwebtoken");
+
+require("dotenv").config();
 
 const handleSignUp = async (req, res) => {
 	try {
@@ -71,8 +74,43 @@ const handleSignIn = async (req, res) => {
 		}
 
 		// todo: create JWT
+		const accessToken = jwt.sign(
+			{
+				username: foundUser.username,
+			},
+			process.env.ACCESS_TOKEN_SECRET,
+			{
+				expiresIn: "30s",
+			}
+		);
+		const refreshToken = jwt.sign(
+			{
+				username: foundUser.username,
+			},
+			process.env.REFRESH_TOKEN_SECRET,
+			{
+				expiresIn: "1d",
+			}
+		);
+
+		const otherUsers = userDB.users.filter(
+			(user) => user.username !== foundUser.username
+		);
+		const currentUser = { ...foundUser, refreshToken };
+		userDB.setUsers([...otherUsers, currentUser]);
+
+		await fsPromise.writeFile(
+			path.join(__dirname, "..", "model", "users.json"),
+			JSON.stringify(userDB.users)
+		);
+
+		res.cookie("jwt", refreshToken, {
+			httpOnly: true,
+			maxAge: 24 * 60 * 60 * 1000,
+		});
+
 		res.json({
-			user: foundUser,
+			accessToken,
 		});
 	} catch (err) {
 		res.status(500).json({ message: err.message });
@@ -80,7 +118,44 @@ const handleSignIn = async (req, res) => {
 	}
 };
 
+const handleSignOut = async (req, res) => {
+	const { cookies } = req;
+	if (!cookies?.jwt) {
+		return res.sendStatus(204); // No content
+	}
+
+	const refreshToken = cookies.jwt;
+	const foundUser = userDB.users.find(
+		(user) => user.refreshToken === refreshToken
+	);
+	if (!foundUser) {
+		res.clearCookie("jwt");
+		return res.sendStatus(204);
+	}
+
+	// delete refresh token in the db
+	userDB.setUsers([
+		...userDB.users.map((user) => {
+			if (user.username === foundUser.username) {
+				return {
+					...user,
+					refreshToken: "",
+				};
+			}
+			return user;
+		}),
+	]);
+
+	await fsPromise.writeFile(
+		path.join(__dirname, "..", "model", "users.json"),
+		JSON.stringify(userDB.users)
+	);
+	res.clearCookie("jwt");
+	res.sendStatus(204);
+};
+
 module.exports = {
 	handleSignUp,
 	handleSignIn,
+	handleSignOut,
 };

@@ -1,1 +1,4 @@
 29/05/2024	09:11:00AM	5e4728ca-65d2-4fcb-912f-013f4453b57b	Error - Not Allow by GuangHui
+29/05/2024	01:19:20PM	5dddcf02-a5ff-49f9-934d-05b29560889b	ReferenceError - data is not defined
+29/05/2024	01:44:43PM	566994b6-65b2-4648-a82a-e6c182c33fab	TypeError - userDB.find is not a function
+29/05/2024	02:03:08PM	7ccd49a8-feec-4551-b77b-e65e1f69e36c	TypeError - Cannot read properties of undefined (reading 'username')
