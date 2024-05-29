@@ -90,11 +90,8 @@ const handleSignIn = async (req, res) => {
 			}
 		);
 
-		await UserModel.findByIdAndUpdate(foundUser._id, {
-			$set: {
-				refreshToken,
-			},
-		});
+		foundUser.refreshToken = refreshToken;
+		await foundUser.save();
 
 		res.cookie("jwt", refreshToken, {
 			httpOnly: true,
@@ -124,11 +121,8 @@ const handleSignOut = async (req, res) => {
 	}
 
 	// delete refresh token in the db
-	await UserModel.findByIdAndUpdate(foundUser._id, {
-		$set: {
-			refreshToken: "",
-		},
-	});
+	foundUser.refreshToken = "";
+	await foundUser.save();
 
 	res.clearCookie("jwt");
 	res.sendStatus(204);

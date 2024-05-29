@@ -20,12 +20,12 @@ const createEmployee = async (req, res) => {
 			message: "All field are required!",
 		});
 	}
-	const newEm = await EmployeeModel.create({
+	const newEmployee = await EmployeeModel.create({
 		name,
 		age: Number(age),
 	});
 
-	res.status(201).json({ employee: newEm });
+	res.status(201).json({ employee: newEmployee });
 };
 
 const updateEmployee = async (req, res) => {
@@ -58,6 +58,11 @@ const updateEmployee = async (req, res) => {
 
 const deleteEmployee = async (req, res) => {
 	const { id } = req.body;
+	if (!id) {
+		return res.status(400).json({
+			message: "You must provide Employee ID",
+		});
+	}
 	const employee = await EmployeeModel.findById(id);
 	if (!employee) {
 		return res.status(404).json({
