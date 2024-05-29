@@ -205,3 +205,17 @@
 29/05/2024	10:59:43AM	077f461b-0036-4443-bf28-a1c8cc70f8e5	/employees - undefined - POST
 29/05/2024	10:59:50AM	e96aa3d0-39e3-49ed-bc41-79a66734163b	/employees - undefined - DELETE
 29/05/2024	10:59:53AM	295af989-5250-47c7-8ce7-a742cd945260	/employees - undefined - DELETE
+29/05/2024	11:24:14AM	c84f677f-2887-4d93-9523-44c4bf0ce475	/auth/signup - undefined - POST
+29/05/2024	11:26:05AM	70f8a90d-1fcd-4c60-be06-2c94a3e24bbb	/auth/signup - undefined - POST
+29/05/2024	11:26:31AM	abdcd4f3-6c4b-47d6-8da3-708756896081	/auth/signup - undefined - POST
+29/05/2024	11:27:01AM	a628dbed-d8ed-4d49-b29c-f8c2833d6e59	/auth/signup - undefined - POST
+29/05/2024	11:27:09AM	769e45c4-6105-4bca-9c0a-4df5aeebc044	/auth/signup - undefined - POST
+29/05/2024	11:27:15AM	02ae7524-3f39-45af-8096-30d9f2694532	/auth/signup - undefined - POST
+29/05/2024	11:28:45AM	a25b01d6-3f5e-435b-b9ad-be6260dacbc9	/auth/signup - undefined - POST
+29/05/2024	11:29:56AM	8cfd0a71-ddfe-4155-a4ff-d97c68602e67	/auth/signup - undefined - POST
+29/05/2024	11:36:20AM	01b63bfd-5ece-4546-a0fc-45645373d680	/auth/signin - undefined - POST
+29/05/2024	11:36:26AM	63d102b8-1c58-4d52-ad72-c09df9353bca	/auth/signin - undefined - POST
+29/05/2024	11:36:29AM	a1924028-0874-44ad-b988-98b7501f9f03	/auth/signin - undefined - POST
+29/05/2024	11:36:30AM	629d588a-bd8b-4f20-bd12-4d5b5bf668a3	/auth/signin - undefined - POST
+29/05/2024	11:36:32AM	f5b21c05-e7da-47d3-9bad-964af618e5b6	/auth/signin - undefined - POST
+29/05/2024	11:38:30AM	883ff722-cef9-43d7-9262-adc04a8ea25c	/auth/signin - undefined - POST
