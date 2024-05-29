@@ -20,15 +20,21 @@ const handleRefreshToken = (req, res) => {
 	);
 
 	jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-		if (err || foundUser?.username !== decoded?.username) {
+		if (err || foundUser?.username !== decoded?.userInfo.username) {
 			return res.status(403).json({ message: "Refresh token is invalid!" });
 		}
 
+		const roles = Object.values(foundUser.roles);
 		const accessToken = jwt.sign(
-			{ username: foundUser.username },
+			{
+				userInfo: {
+					username: foundUser.username,
+					roles,
+				},
+			},
 			process.env.ACCESS_TOKEN_SECRET,
 			{
-				expiresIn: "30s",
+				expiresIn: "5m",
 			}
 		);
 

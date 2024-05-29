@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
 const fsPromise = require("fs/promises");
 const path = require("path");
 const jwt = require("jsonwebtoken");
+const ROLES = require("../configs/rolesList");
 
 require("dotenv").config();
 
@@ -33,6 +34,9 @@ const handleSignUp = async (req, res) => {
 		const newUser = {
 			username,
 			password: hashedPassword,
+			roles: {
+				USER: ROLES.USER,
+			},
 		};
 
 		userDB.setUsers([...userDB.users, newUser]);
@@ -74,13 +78,18 @@ const handleSignIn = async (req, res) => {
 		}
 
 		// todo: create JWT
+		const roles = Object.values(foundUser.roles);
+
 		const accessToken = jwt.sign(
 			{
-				username: foundUser.username,
+				userInfo: {
+					username: foundUser.username,
+					roles,
+				},
 			},
 			process.env.ACCESS_TOKEN_SECRET,
 			{
-				expiresIn: "30s",
+				expiresIn: "5m",
 			}
 		);
 		const refreshToken = jwt.sign(

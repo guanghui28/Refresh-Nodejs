@@ -9,15 +9,17 @@ const {
 	getEmployee,
 } = require("../../controllers/employeeController");
 const { verifyJWT } = require("../../middleware/verifyJWT");
+const ROLES = require("../../configs/rolesList");
+const { verifyRoles } = require("../../middleware/verifyRoles");
 
 router.use(verifyJWT);
 
 router
 	.route("/")
 	.get(getAllEmployees)
-	.post(createEmployee)
-	.put(updateEmployee)
-	.delete(deleteEmployee);
+	.post(verifyRoles(ROLES.ADMIN, ROLES.EDITOR), createEmployee)
+	.put(verifyRoles(ROLES.ADMIN, ROLES.EDITOR), updateEmployee)
+	.delete(verifyRoles(ROLES.ADMIN), deleteEmployee);
 
 router.route("/:id").get(getEmployee);
 

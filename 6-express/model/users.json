@@ -1,1 +1,20 @@
-[{"username":"guanghui","password":"$2b$10$/9nkI.HA.L9AjGAwCkaWF.rxB0SPq1P9ZPKE72HFwcw.dOlg5RRiK","refreshToken":""}]
+[
+	{
+		"username": "quanghuy",
+		"roles": { "USER": 3333 },
+		"password": "$2b$10$kmn.OI5gU2b9vZOvwBycy.ZEx7ssGXWB9SgPSY9OPuWhZ35yo0rx.",
+		"refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF1YW5naHV5IiwiaWF0IjoxNzE2OTY5MjQyLCJleHAiOjE3MTcwNTU2NDJ9.1B-vREI0CcuSj8pB9ZLFWesymOXzBXb7MeNAtc0yitY"
+	},
+	{
+		"username": "lisa",
+		"roles": { "EDITOR": 2222, "USER": 3333 },
+		"password": "$2b$10$HZUkQHQJJQCV5UjF9O96/ejUTYPwpE38BPU1Ga/BuAZBq7Vw2QSzO",
+		"refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imxpc2EiLCJpYXQiOjE3MTY5NjkzNTIsImV4cCI6MTcxNzA1NTc1Mn0.SE9qWIiTX3t4MIJlnVgU8-iEa0vocc4HBTr4FSTb3jc"
+	},
+	{
+		"username": "guanghui",
+		"roles": { "ADMIN": 1111, "EDITOR": 2222, "USER": 3333 },
+		"password": "$2b$10$/9nkI.HA.L9AjGAwCkaWF.rxB0SPq1P9ZPKE72HFwcw.dOlg5RRiK",
+		"refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imd1YW5naHVpIiwiaWF0IjoxNzE2OTY5NDkzLCJleHAiOjE3MTcwNTU4OTN9.cE2-FoJqqWY0BBFnB9Pld_eUFBE5lFmJo6x1M7Qi9Ws"
+	}
+]
